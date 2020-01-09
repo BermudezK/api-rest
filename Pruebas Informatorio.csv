@@ -1,0 +1,9 @@
+type,test_result,error_message,param,recurso,id,nombre,cant
+"HP","200", ,"id","producto","1","monitor","12"
+"HP","200", ,"nombre","producto","2","CPU","3"
+"N","200","Producto no encontrado","id","producto","4","mouse","10"
+"N","200","Producto no encontrado","nombre","producto","5","parlante","5"
+"HP","200", ,"id","insumo","1","tinta 952","6"
+"HP","200",,"nombre","insumo","2","papel A4","4"
+"N","200","Insumo no encontrado","id","insumo","3","tinta 123","2"
+"N","200","Insumo no encontrado","nombre","insumo","4","tinta 321","3"

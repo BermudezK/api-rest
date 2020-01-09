@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "12265937-0631-4845-8aec-c2f4d62dcdba",
+		"name": "Pruebas Insumos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"item": [
+				{
+					"name": "Productos/Insumos QueryParam nombre",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "57598c99-f967-49e4-8424-4c34ba852e49",
+								"exec": [
+									"pm.globals.unset(\"param\");",
+									"pm.globals.unset(\"recurso\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2e6aa8e-1550-4cf7-93cd-d7b41e49dda6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Función get nombre QP\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    if (data.type===\"HP\"){",
+									"        pm.expect(jsonData.nombre).to.eql(data.nombre);",
+									"    } else {",
+									"        pm.expect(pm.response.text()).to.include(\"no encontrado\");",
+									"    }",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/api/{{recurso}}?nombre={{nombre}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"api",
+								"{{recurso}}"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "{{nombre}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Productos/Insumos QueryParam id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "57598c99-f967-49e4-8424-4c34ba852e49",
+								"exec": [
+									"pm.globals.unset(\"nombre\");",
+									"pm.globals.unset(\"param\");",
+									"pm.globals.unset(\"recurso\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2e6aa8e-1550-4cf7-93cd-d7b41e49dda6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Función get id QP\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    if (data.type===\"HP\"){",
+									"        pm.expect(jsonData.nombre).to.eql(data.nombre);",
+									"    } else {",
+									"        pm.expect(pm.response.text()).to.include(\"no encontrado\");",
+									"    }",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/api/{{recurso}}?{{param}}={{id}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"api",
+								"{{recurso}}"
+							],
+							"query": [
+								{
+									"key": "{{param}}",
+									"value": "{{id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recursos/Insumos PathParam nombre",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "57598c99-f967-49e4-8424-4c34ba852e49",
+								"exec": [
+									"pm.globals.unset(\"param\");",
+									"pm.globals.unset(\"recurso\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2e6aa8e-1550-4cf7-93cd-d7b41e49dda6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Función get nombre PP\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    ",
+									"    if (data.type===\"HP\"){",
+									"        pm.expect(jsonData.nombre).to.eql(data.nombre);",
+									"    }",
+									"    else {",
+									"        pm.expect(pm.response.text()).to.include(\"no encontrado\");",
+									"    }",
+									"    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/api/{{recurso}}/{{nombre}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"api",
+								"{{recurso}}",
+								"{{nombre}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Recursos/Insumos PathParam id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "57598c99-f967-49e4-8424-4c34ba852e49",
+								"exec": [
+									"pm.globals.unset(\"recurso\");",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c2e6aa8e-1550-4cf7-93cd-d7b41e49dda6",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Función get id PP\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    ",
+									"    if (data.type===\"HP\"){",
+									"        pm.expect(jsonData.nombre).to.eql(data.nombre);",
+									"    }",
+									"    else {",
+									"        pm.expect(pm.response.text()).to.include(\"no encontrado\");",
+									"    }",
+									"    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{localhost}}/api/{{recurso}}/{{id}}",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"api",
+								"{{recurso}}",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Post",
+			"item": [
+				{
+					"name": "Post Insumo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "08306899-bb19-46ac-bcea-887f6a91179e",
+								"exec": [
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"funcion insumo.push \", function(){",
+									"    jsonData = pm.response.json();",
+									"    ",
+									"    if(data.type=='HP'){",
+									"        pm.expect(jsonData.mensaje).to.include(\"El insumo se ha agregado\");",
+									"    } else if (data.type=='N'){",
+									"        pm.expect(jsonData.mensaje).to.include(data.error_message);",
+									"    }",
+									"",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ba6a433-6931-4a4b-a9a0-eadf4a5a4b8c",
+								"exec": [
+									"pm.globals.unset(\"ID\");",
+									"pm.globals.unset(\"nom\");",
+									"pm.globals.unset(\"cantidad\");",
+									"",
+									"pm.globals.set(\"ID\",0);",
+									"pm.globals.set(\"nom\",'' );",
+									"pm.globals.set(\"cantidad\",9);",
+									"",
+									"pm.globals.unset(\"type\");",
+									"",
+									"pm.globals.set(\"type\", \"N\");",
+									"console.log(pm.globals.get(pm.globals));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":{{ID}},\n    \"nombre\":\"{{nom}}\",\n    \"cant\":{{cantidad}}\n}"
+						},
+						"url": {
+							"raw": "{{localhost}}/api/insumo",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"api",
+								"insumo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Producto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "08306899-bb19-46ac-bcea-887f6a91179e",
+								"exec": [
+									"",
+									"pm.test(\"Successful POST request\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"funcion producto.push \", function(){",
+									"    jsonData = pm.response.json();",
+									"    ",
+									"    if(data.type=='HP'){",
+									"        pm.expect(jsonData.mensaje).to.include(\"El producto se ha agregado\");",
+									"    } else if (data.type=='N'){",
+									"        pm.expect(jsonData.mensaje).to.include(data.error_message);",
+									"    }",
+									"",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4ba6a433-6931-4a4b-a9a0-eadf4a5a4b8c",
+								"exec": [
+									"pm.globals.unset(\"ID\");",
+									"pm.globals.unset(\"nom\");",
+									"pm.globals.unset(\"cantidad\");",
+									"",
+									"pm.globals.set(\"ID\", data.id);",
+									"pm.globals.set(\"nom\",data.nombre);",
+									"pm.globals.set(\"cantidad\",data.cant);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\":{{ID}},\n    \"nombre\":\"{{nom}}\",\n    \"cant\":{{cantidad}}\n}"
+						},
+						"url": {
+							"raw": "{{localhost}}/api/producto",
+							"host": [
+								"{{localhost}}"
+							],
+							"path": [
+								"api",
+								"producto"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
